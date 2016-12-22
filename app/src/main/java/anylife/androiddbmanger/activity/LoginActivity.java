@@ -35,6 +35,7 @@ import java.util.List;
 
 import anylife.androiddbmanger.MyApplication;
 import anylife.androiddbmanger.R;
+import anylife.androiddbmanger.sharedprefence.SharedPreferencesDao;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -77,6 +78,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 		// Set up the login form.
 		mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
 		populateAutoComplete();
+
+		mEmailView.setText(SharedPreferencesDao.getInstance().getData("Account","",String.class));
 
 		mPasswordView = (EditText) findViewById(R.id.password);
 		mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -319,7 +322,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 			try {
 				// Simulate network access.
-				Thread.sleep(3000);
+				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				return false;
 			}
@@ -348,7 +351,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 				startActivity(intent);
 
 				((MyApplication) getApplication()).setDaoSession(email);  //重新的指向新的数据库！
-
+				SharedPreferencesDao.getInstance().saveData("Account",email);
 				LoginActivity.this.finish();
 
 			} else {

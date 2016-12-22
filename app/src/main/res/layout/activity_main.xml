@@ -7,7 +7,7 @@
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin"
-                tools:context="org.greenrobot.greendao.example.NoteActivity"
+                tools:context="anylife.androiddbmanger.activity.MainActivity"
                 tools:ignore="RtlHardcoded">
 
     <Button
@@ -40,6 +40,7 @@
         android:textSize="12sp"/>
 
     <android.support.v7.widget.RecyclerView
+        android:background="#33000000"
         android:id="@+id/recyclerViewNotes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

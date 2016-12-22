@@ -38,5 +38,4 @@ dependencies {
     compile 'net.zetetic:android-database-sqlcipher:3.5.4'  //use encrypted databases
     compile 'org.greenrobot:greendao:3.2.0'      //greenDao Core
 
-
 }

@@ -5,9 +5,9 @@
     android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="6dp">
 
-    <TextView
+<TextView
         android:id="@+id/textViewNoteText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

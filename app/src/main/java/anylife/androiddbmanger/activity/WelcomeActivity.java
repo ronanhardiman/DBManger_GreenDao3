@@ -29,5 +29,6 @@ public class WelcomeActivity extends AppCompatActivity {
 				WelcomeActivity.this.finish();
 			}
 		}).start();
+
 	}
 }

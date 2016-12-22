@@ -14,7 +14,15 @@
   ##GreenDao 3.0 重要的更新说明   
   > 正式支持SQLCipher 加密。   
   > greenDao V3.X 开始使用 编译时注解 + Gradle Plugin 去生成实体和框架代码。   
-  > 开始支持RxJava   
+  > 开始支持RxJava
+#Android 数据库文件导出查看   
+  我们知道数据库是保存在data/data/packagename/databases 目录下面,当很长一段时间需要查看数据接中的内容时我们需要导出db文件
+  然后使用SQLite Expert（Windows 平台http://www.sqliteexpert.com/）查看是非常方便的。那么怎样能把私有目录的DB文件导出来呢？
+  - 连接手机 adb shell
+  - run-as packagename
+  - cat /data/data/packagename/databases/database-name >/sdcard/new-dbname（有些手机可能失败，建议开发者购买google Nexus 设备）
+  - 这个时候我们就可以在Sdcard 对应的目录看见new-dbname 这个DB 文件了（不要手机连接Windows用默认的文件管理器看，按照一个应用宝，或者360 手机助手）
+  - 从手机的Sdcard 目录导出db 文件用SQLite Expert 打开查看吧，SQLite Expert使用就不介绍了
  
 #本项目的目的   
   以前使用的数据库一路走来SQLITE --> Ormlite  --> GreenDao.封装越来越高级，使用越来越简单，也许很长的时间会一直使用GReenDao.   
@@ -24,5 +32,8 @@
   - xxxxx
   - 数据库的基本操作
   - 
+  
+# 本项目模拟的一个场景介绍
+   为了减少网络请求的次数和开销，客户端拉取的消息需要本地用数据库保存，当很长的一段时间没有拉取的时间会出现以下情况：
   
    

@@ -16,10 +16,8 @@ import anylife.androiddbmanger.sharedprefence.SharedPreferencesDao;
  */
 public class MyApplication extends Application {
 	public static final String TAG = MyApplication.class.getSimpleName();
-	/**
-	 * A flag to show how easily you can switch from standard SQLite to the encrypted SQLCipher.
-	 */
-	public static final boolean ENCRYPTED = false;
+
+	public static final boolean ENCRYPTED = false;  //A flag to show how easily you can switch from standard SQLite to the encrypted SQLCipher.
 	private DaoSession daoSession;
 
 	@Override
@@ -29,10 +27,13 @@ public class MyApplication extends Application {
 		Log.d(TAG, processName + "Application onCreate");
 		if (!TextUtils.isEmpty(processName) && processName.equals(this.getPackageName())) { //main Process
 			SharedPreferencesDao.initSharePrefenceDao(this);
+
 			setDaoSession(SharedPreferencesDao.getInstance().getData("Account","",String.class));
 		} else {
+			//
 
 		}
+
 	}
 
 	/**
