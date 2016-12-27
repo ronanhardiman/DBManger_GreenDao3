@@ -353,7 +353,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 				((MyApplication) getApplication()).setDaoSession(email);  //重新的指向新的数据库！
 				SharedPreferencesDao.getInstance().saveData("Account",email);
 				LoginActivity.this.finish();
-
 			} else {
 				mPasswordView.setError(getString(R.string.error_incorrect_password));
 				mPasswordView.requestFocus();

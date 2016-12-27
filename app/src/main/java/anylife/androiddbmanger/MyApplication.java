@@ -3,12 +3,14 @@ package anylife.androiddbmanger;
 import android.app.Application;
 import android.text.TextUtils;
 import android.util.Log;
+
 import org.greenrobot.greendao.database.Database;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import anylife.androiddbmanger.entity.DaoMaster;
-import anylife.androiddbmanger.entity.DaoSession;
+import anylife.androiddbmanger.entity.daoManger.DaoMaster;
+import anylife.androiddbmanger.entity.daoManger.DaoSession;
 import anylife.androiddbmanger.sharedprefence.SharedPreferencesDao;
 
 /**
@@ -27,14 +29,14 @@ public class MyApplication extends Application {
 		Log.d(TAG, processName + "Application onCreate");
 		if (!TextUtils.isEmpty(processName) && processName.equals(this.getPackageName())) { //main Process
 			SharedPreferencesDao.initSharePrefenceDao(this);
-
 			setDaoSession(SharedPreferencesDao.getInstance().getData("Account","",String.class));
 		} else {
 			//
 
 		}
-
 	}
+
+
 
 	/**
 	 * 设置数据库操作对象
@@ -50,7 +52,6 @@ public class MyApplication extends Application {
 		}else{
 			Log.e(TAG,"Account is empty,init db failed");
 		}
-
 	}
 
 	/**

@@ -8,7 +8,6 @@ import org.greenrobot.greendao.annotation.Generated;
 /**
  * Created by zenglb on 2016/12/20.
  */
-
 @Entity   //表示这个实体类一会会在数据库中生成对应的表
 public class User {
 	@Id
@@ -17,6 +16,8 @@ public class User {
 	private String username;
 	@Property(nameInDb = "NICKNAME")
 	private String nickname;
+
+
 	@Generated(hash = 523935516)
 	public User(Long id, String username, String nickname) {
 					this.id = id;

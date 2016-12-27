@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.MainActivity"
-            android:label="DB Manger">
+            android:label="GreenDao 的基础操作">
         </activity>
 
         <activity
