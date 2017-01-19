@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_common"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.miguelcatalan.materialsearchview.MaterialSearchView
+            android:id="@+id/search_view"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:visibility="visible"
+        android:id="@+id/search_ll"
+        android:background="@android:color/white"
+        android:layout_margin="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="38dp">
+        <ImageView
+            android:src="@drawable/msg_search"
+            android:layout_width="match_parent"
+            android:layout_height="35dp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/list_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <com.liaoinstan.springview.widget.SpringView
+            android:id="@+id/springview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/bg_common">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:scrollbarStyle="insideInset"
+                app:layoutManager="LinearLayoutManager"
+                android:layout_marginBottom="5dp"
+                />
+        </com.liaoinstan.springview.widget.SpringView>
+
+
+        <LinearLayout
+            android:id="@+id/ll_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:layout_gravity="bottom"
+            android:layout_weight="0">
+            <Button
+                android:id="@+id/btn_read"
+                android:layout_width="0dp"
+                android:padding="3dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_msg_set_read"
+                android:background="#ff889933"
+                android:textColor="@android:color/white"
+                android:text="标为已读"
+                android:textSize="11sp"
+                />
+            <Button
+                android:id="@+id/btn_delete"
+                android:padding="3dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_msg_delete"
+                android:background="#e64f45"
+                android:textColor="@android:color/white"
+                android:text="删 除"
+                android:textSize="11sp"
+                />
+
+        </LinearLayout>
+
+    </FrameLayout>
+</LinearLayout>

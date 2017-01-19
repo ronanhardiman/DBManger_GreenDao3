@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    tools:context=".activity.messageCenter.MessageClassifyListActivity"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_marginRight="1dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:id="@+id/msg_icon"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:src="@drawable/def_msg" />
+
+        <TextView
+            android:layout_margin="8dp"
+            android:id="@+id/tv_unread"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:background="@drawable/unread_icon"
+            android:textColor="@android:color/white"
+            android:layout_gravity="top|right"
+            android:text="99" />
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:layout_alignParentTop="true"
+            android:text="系统通知" />
+
+        <TextView
+            android:id="@+id/title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_alignParentBottom="true"
+            android:singleLine="true"
+            android:text="你有25000元还在ATM吐钞口，请收取" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:paddingTop="1dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/title1"
+            android:text="2018-09-21" />
+
+    </RelativeLayout>
+</LinearLayout>

@@ -20,11 +20,11 @@ public class WelcomeActivity extends AppCompatActivity {
 			@Override
 			public void run() {
 				try{
-					Thread.sleep(2000);
+					Thread.sleep(1000);
 				}catch (Exception e){
 
 				}
-				Intent intent=new Intent(context,LoginActivity.class);
+				Intent intent=new Intent(context,MainActivity.class);
 				startActivity(intent);
 				WelcomeActivity.this.finish();
 			}

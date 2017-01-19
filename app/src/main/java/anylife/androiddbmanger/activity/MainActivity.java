@@ -1,6 +1,7 @@
 package anylife.androiddbmanger.activity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -23,11 +24,14 @@ import java.util.List;
 
 import anylife.androiddbmanger.MyApplication;
 import anylife.androiddbmanger.R;
+import anylife.androiddbmanger.activity.messageCenter.MessageClassifyListActivity;
 import anylife.androiddbmanger.dbtest.NoteType;
 import anylife.androiddbmanger.dbtest.NotesAdapter;
 import anylife.androiddbmanger.entity.Note;
 import anylife.androiddbmanger.entity.daoManger.DaoSession;
 import anylife.androiddbmanger.entity.daoManger.NoteDao;
+import anylife.androiddbmanger.sharedprefence.SharedPreferencesDao;
+import anylife.androiddbmanger.utilss.ExportDBUtils;
 
 /**
  * 测试数据库的基本的操作
@@ -47,8 +51,9 @@ public class MainActivity extends AppCompatActivity {
 
 		setUpViews();
 
+		ExportDBUtils.exportDatabse(SharedPreferencesDao.getInstance().getData("Account","DefDb",String.class),this);
 		// get the note DAO
-		DaoSession daoSession = ((MyApplication) getApplication()).getDaoSession();  //就是这样写，还搞什么单
+		DaoSession daoSession = ((MyApplication) getApplication()).getDaoSession();
 		noteDao = daoSession.getNoteDao();
 
 		// query all notes, sorted a-z by their text
@@ -62,7 +67,10 @@ public class MainActivity extends AppCompatActivity {
 				.setPositiveButton("是的", new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						//去进行场景的.
+						//去进行场景设计
+						Intent intent=new Intent();
+						intent.setClass(MainActivity.this, MessageClassifyListActivity.class);
+						startActivity(intent);
 					}
 				})
 				.setNegativeButton("下次吧", null).show();
@@ -77,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	/**
-	 *
+	 *初始化views
 	 */
 	protected void setUpViews() {
 		RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerViewNotes);
@@ -104,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 		editText.addTextChangedListener(new TextWatcher() {
-
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				boolean enable = s.length() != 0;
@@ -137,7 +144,6 @@ public class MainActivity extends AppCompatActivity {
 		Note note = new Note(null, noteText, comment, new Date(), NoteType.TEXT);
 		noteDao.insert(note);
 		Log.d("DaoExample", "Inserted new note, ID: " + note.getId());
-
 		updateNotes();
 	}
 

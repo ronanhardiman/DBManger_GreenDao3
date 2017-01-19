@@ -29,7 +29,7 @@ public class MyApplication extends Application {
 		Log.d(TAG, processName + "Application onCreate");
 		if (!TextUtils.isEmpty(processName) && processName.equals(this.getPackageName())) { //main Process
 			SharedPreferencesDao.initSharePrefenceDao(this);
-			setDaoSession(SharedPreferencesDao.getInstance().getData("Account","",String.class));
+			setDaoSession(SharedPreferencesDao.getInstance().getData("Account","DefDb",String.class));
 		} else {
 			//
 

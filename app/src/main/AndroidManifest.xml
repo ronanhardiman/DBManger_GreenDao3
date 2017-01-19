@@ -30,6 +30,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.messageCenter.MessageClassifyListActivity">
+        </activity>
+
+        <activity android:name=".activity.messageCenter.SomeTypeMsgListActivity">
+        </activity>
+
     </application>
 
 </manifest>

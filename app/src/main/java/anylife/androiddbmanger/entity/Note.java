@@ -17,10 +17,8 @@ import anylife.androiddbmanger.dbtest.NoteTypeConverter;
     @Index(value = "text, date DESC", unique = true)
 })
 public class Note {
-
     @Id
     private Long id;
-
     @NotNull
     private String text;
     private String comment;

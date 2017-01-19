@@ -11,25 +11,11 @@ import android.util.Log;
  * Created by zenglb on 2016/11/8.
  */
 public class SharedPreferencesDao {
+	public static final String KEY_MAXID= "KEY_MAXID";  //Key 的账号部分是变化的，登录多少个账号就保存多少Account+maxid
 	private static SharedPreferencesDao sharedPreferencesDao;
 
 	public static SharedPreferencesDao getInstance() {
-//		if (sharedPreferencesDao == null) {
-//			sharedPreferencesDao = new SharedPreferencesDao(Context.MODE_PRIVATE);
-//		}
-
 		sharedPreferencesDao = new SharedPreferencesDao(Context.MODE_MULTI_PROCESS);
-
-
-//		/**
-//		 * Multi Process，SP work fine ,But not Perfect
-//		 * WARMING: It is deprecated
-//		 * 	@Deprecated
-//		 */
-//		if(App.getProcessNum>1){
-//			sharedPreferencesDao = new SharedPreferencesDao(Context.MODE_MULTI_PROCESS);
-//		}
-
 		return sharedPreferencesDao;
 	}
 
